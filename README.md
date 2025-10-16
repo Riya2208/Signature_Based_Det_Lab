@@ -1,41 +1,23 @@
-# Overview
+# Signature-based detection lab
 
-**Title:** Signature-based detection lab
+## Overview
 
-**Purpose**
-This lab demonstrates a minimal, safe workflow for extracting a password-protected malware archive, inspecting extracted artifacts, and creating cryptographic file signatures (SHA256 and MD5) that can be used for signature-based detection and tracking.
+This lab demonstrates basic signature-based detection steps: download sample archive, inspect files, extract safely, and record file checksums (SHA256 and MD5) for signature creation and tracking.
 
-**Objectives**
-- Safely extract files from `malz.zip` (password: `infected`) into a controlled directory.
-- Inspect file types and metadata without executing any binaries.
-- Produce SHA256 and MD5 checksums for suspicious files (e.g., `test.exe`) and for all extracted files.
-- Save analysis outputs and screenshots so results can be reviewed or used to craft YARA signatures or IOC lists.
+**Safety:** Do **not** execute any unknown binaries (e.g., `test.exe`) on your host. Work inside an isolated VM or sandbox (air-gapped VM, snapshot before testing). Treat all files as malicious until proven otherwise.
 
-**Environment & Safety**
-- **Always** run this lab inside an isolated environment (a disposable VM, sandbox, or container with no network access unless required and controlled).
-- Do **not** execute any extracted binaries on the host.
-- Take a snapshot/backup of the VM before any dynamic analysis.
-- Never commit real malware samples to a public repository. Only commit logs, checksums, and sanitized outputs.
+---
 
-**Prerequisites**
-- `unzip` (supports `-P` for password)
-- `sha256sum`, `md5sum`
-- `file`, `strings` (for safe static inspection)
-- A working directory where `malz.zip` is stored
+## Files / folders
 
-**Quick workflow (high-level)**
-1. Create working directory `signature_lab/` and enter it.
-2. Place `malz.zip` in the directory.
-3. Create `extracted/` and unzip using the password `infected`.
-4. List and inspect extracted files with `ls -la` and `file`.
-5. Identify suspicious executables (e.g., `test.exe`) using filename patterns or file output.
-6. Generate SHA256 and MD5 checksums for individual files and for the full extraction set.
-7. Save `file` outputs, `strings` extracts, and checksum files into a `checksums/` folder.
-8. Save screenshots of each major step into `screenshots/` and reference them in the README.
-9. Keep all analysis results (hash lists, file metadata) but **do not** upload raw samples to public repositories.
+* `signature_lab/` — project root
+* `malz.zip` — sample archive (password: `infected`)
+* `extracted/` — files extracted from `malz.zip`
+* `checksums/` — saved checksum files
 
-**Expected outputs**
-- `extracted/` — extracted sample files
-- `checksums/all.sha256` — SHA256 sums for all extracted files
-- `checksums/all.md5` — MD5 sums for all extracted files
-- `checksums/<f
+---
+
+## Notes
+
+* Keep all operations inside an isolated environment.
+* Do not commit real malware samples to a public repository — only commit logs, checksums, and sanitized outputs.
