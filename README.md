@@ -16,14 +16,14 @@ cd signature_lab
 ```bash 
 ls
 ```
-4.Unzipped the Archive
+4. Unzipped the Archive
 ```bash
 unzip malz.zip
 ```
 - Password used: infected
 - Extracted file: test.exe
 
-5.Generated Checksums
+5. Generated Checksums
 ```bash
 sha256sum test.exe
 md5sum test.exe
@@ -32,7 +32,7 @@ md5sum test.exe
 - MD5: 9e7c18ed01675b77d14d6e26de9a3ddb
 <img width="956" height="680" alt="Image" src="https://github.com/user-attachments/assets/6b9dfda7-1193-4a3f-87b4-29a7f7ab4738" />
 
-6.Verified File on VirusTotal
+6. Verified File on VirusTotal
 - Opened Firefox and navigated to VirusTotal
 - Pasted the SHA256 hash in the search bar.
 - Reviewed the detection results (screenshot captured).
